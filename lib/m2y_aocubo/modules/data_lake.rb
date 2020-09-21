@@ -10,6 +10,7 @@ module M2yAocubo
       headers = {'Content-Type' => "application/json"}
       headers["x-api-key"] = M2yAocubo.configuration.ao3_api_key
       headers["x-csrf-token"] = "ao#{Time.now.to_s}"
+      headers
     end
 
     def self.sendData(params)
