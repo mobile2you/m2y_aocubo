@@ -34,6 +34,7 @@ module M2yAocubo
 
     def self.safeBody(body, public_key)
       body[:client_id] = M2yAocubo.configuration.ao3_client_id
+      public_key  = OpenSSL::PKey::RSA.new(client_public_key)
       body.keys.each do |key|
         if SAFE_KEYS.include?(key)
           body[key] = crypt(body[key], public_key)
