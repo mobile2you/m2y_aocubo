@@ -19,7 +19,7 @@ module M2yAocubo
     def self.postUrl(url, body)
       crypt = cryptContext
       if crypt.client_public_key.nil?
-        {status: 500}
+        nil
       else
         HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key))
       end
