@@ -32,7 +32,7 @@ module M2yAocubo
 
     def self.identify(userId)
       url = "#{baseUrl}/#{IDENTIY}"
-      req = HTTParty.post(url, headers: basicHeaders, body: {"userId" : userId}.to_json)
+      req = HTTParty.post(url, headers: basicHeaders, body: {userId: userId}.to_json)
     end
 
     def self.bodyFromParams(params)
