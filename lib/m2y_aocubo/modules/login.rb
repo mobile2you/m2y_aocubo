@@ -3,7 +3,7 @@ module M2yAocubo
 
     def self.getToken
       url = "#{baseUrl}/#{TOKEN}"
-      getUrl(url, body)
+      getUrl(url)
     end
 
 
