@@ -3,6 +3,7 @@ require 'm2y_aocubo/constants/constants'
 require 'm2y_aocubo/modules/data_lake'
 require 'm2y_aocubo/modules/base'
 require 'm2y_aocubo/modules/registration'
+require 'm2y_aocubo/modules/login'
 
 module M2yAocubo
 
