@@ -25,6 +25,10 @@ module M2yAocubo
       end
     end
 
+    def self.getUrl(url)
+      HTTParty.get(url, headers: baseHeaders)
+    end
+
 
     def self.cryptContext
       url = "#{baseUrl}/#{CRYPT_CONTEXT}"
