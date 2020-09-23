@@ -21,14 +21,14 @@ module M2yAocubo
       if crypt.client_public_key.nil?
         {status: 500}
       else
-        HTTParty.post(url, headers: basicHeaders(crypt.id), body: safeBody(body, crypt.client_public_key))
+        HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key))
       end
     end
 
 
     def self.cryptContext
       url = "#{baseUrl}/#{CRYPT_CONTEXT}"
-      req = HTTParty.get(url, headers: basicHeaders)
+      req = HTTParty.get(url, headers: baseHeaders)
       OpenStruct.new(req.parsed_response)
     end
 
