@@ -21,7 +21,7 @@ module M2yAocubo
       if crypt.client_public_key.nil?
         {status: 500}
       else
-        HTTParty.post(url, headers: basicHeaders(crypt.id), safeBody(body, crypt.client_public_key))
+        HTTParty.post(url, headers: basicHeaders(crypt.id), body: safeBody(body, crypt.client_public_key))
       end
     end
 
