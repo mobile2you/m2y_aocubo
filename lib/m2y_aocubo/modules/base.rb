@@ -42,7 +42,7 @@ module M2yAocubo
       body.to_json
     end
 
-    def crypt(string, public_key)
+    def self.crypt(string, public_key)
       Base64.strict_encode64(public_key.public_encrypt(string))
     end
 
