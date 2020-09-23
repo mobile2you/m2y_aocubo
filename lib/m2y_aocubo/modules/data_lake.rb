@@ -9,7 +9,7 @@ module M2yAocubo
     def self.basicHeaders
       headers = {'Content-Type' => "application/json"}
       headers["x-api-key"] = M2yAocubo.configuration.ao3_api_key
-      headers["x-csrf-token"] = "ao#{Time.now.to_i}"
+      headers["x-csrf-token"] = "ao#{Time.now.to_i}3"
       headers
     end
 

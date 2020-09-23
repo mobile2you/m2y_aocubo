@@ -1,6 +1,8 @@
 require 'm2y_aocubo/configuration/configuration'
 require 'm2y_aocubo/constants/constants'
 require 'm2y_aocubo/modules/data_lake'
+require 'm2y_aocubo/modules/base'
+require 'm2y_aocubo/modules/registration'
 
 module M2yAocubo
 
