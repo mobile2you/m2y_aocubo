@@ -20,7 +20,7 @@ module M2yAocubo
         headers["x-crypto-context"] = crypt_id
       end
       if auth
-        headers["Authorization"] = Base64.encode("#{M2yAocubo.configuration.ao3_client_id}:#{M2yAocubo.configuration.ao3_client_secret}")
+        headers["Authorization"] = Base64.encode64("#{M2yAocubo.configuration.ao3_client_id}:#{M2yAocubo.configuration.ao3_client_secret}")
       end
       headers
     end
