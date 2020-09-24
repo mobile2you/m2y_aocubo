@@ -5,7 +5,7 @@ module M2yAocubo
     def self.forgotPassword(username)
       body = {username: username}
       url = "#{baseUrl}/#{FORGOT_PASS}"
-      postUrl(url, body)
+      postUrl(url, body, true)
     end
 
     def self.updatePassword(username, previousPassword, proposedPassword, token)
