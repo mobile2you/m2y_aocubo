@@ -50,9 +50,7 @@ module M2yAocubo
       body[:client_id] = M2yAocubo.configuration.ao3_client_id
       public_key  = OpenSSL::PKey::RSA.new(public_key)
       body.keys.each do |key|
-        puts key
-        puts SAFE_KEYS
-        if SAFE_KEYS.include?(key)
+        if SAFE_KEYS.include?(key.to_s)
           body[key] = crypt(body[key], public_key)
         end
       end

@@ -10,6 +10,6 @@ module M2yAocubo
   CONFIRM_PASS = 'hypercube_usm​/v1​/oauth​/confirmforgotpassword'
   UPDATE_PASS = 'hypercube_usm/v1/oauth/changepassword'
 
-  SAFE_KEYS = ['name', 'username', 'password', 'confirm_password', 'email']
+  SAFE_KEYS = %w[name username password confirm_password email]
   RESTRICTED_KEYS = %w[password itoken password_confirmation]
 end
