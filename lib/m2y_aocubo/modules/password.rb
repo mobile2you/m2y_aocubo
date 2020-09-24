@@ -9,7 +9,7 @@ module M2yAocubo
     end
 
     def self.updatePassword(username, previousPassword, proposedPassword, token)
-      body = {username: username, previousPassword: previousPassword, proposedPassword: proposedPassword}
+      body = {username: username, previousPassword: previousPassword, proposedPassword: proposedPassword, confirmPassword: proposedPassword}
       url = "#{baseUrl}/#{UPDATE_PASS}"
       postUrlWithBearerToken(url, body, token)
     end
