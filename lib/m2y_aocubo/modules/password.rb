@@ -25,8 +25,7 @@ module M2yAocubo
       if crypt.client_public_key.nil?
         nil
       else
-        headers = baseHeaders(crypt, false)
-        puts headers
+        headers = baseHeaders(crypt.id, false)
         # headers["Authorization"] = "Bearer #{token}"
         HTTParty.post(url, headers: headers, body: body)
       end
