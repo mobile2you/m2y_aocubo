@@ -25,12 +25,12 @@ module M2yAocubo
       if crypt.client_public_key.nil?
         nil
       else
-        HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key), :basic_auth => auth ? basic_auth : nil)
+        HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key), :basic_auth => auth ? basicAuth : nil)
       end
     end
 
     def self.getUrl(url, auth = false)
-      HTTParty.get(url, headers: baseHeaders, :basic_auth => auth ? basic_auth : nil)
+      HTTParty.get(url, headers: baseHeaders, :basic_auth => auth ? basicAuth : nil)
     end
 
 
