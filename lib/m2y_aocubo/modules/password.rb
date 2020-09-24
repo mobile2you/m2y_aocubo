@@ -26,7 +26,7 @@ module M2yAocubo
         nil
       else
         headers = baseHeaders(crypt.id, false)
-        # headers["Authorization"] = "Bearer #{token}"
+        headers["Authorization"] = "Bearer #{token}"
         HTTParty.post(url, headers: headers, body: body)
       end
     end
