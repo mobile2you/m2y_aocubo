@@ -21,7 +21,7 @@ module M2yAocubo
     end
 
     def self.postUrlWithBearerToken(url, body, token)
-      headers = baseHeaders(crypt.id, false)
+      headers = baseHeaders(nil, false)
       headers["Authorization"] = "Bearer #{token}"
       HTTParty.post(url, headers: headers, body: body.to_json)
     end
