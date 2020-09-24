@@ -8,16 +8,22 @@ module M2yAocubo
       postUrl(url, body)
     end
 
-    def self.updatePassword(username, previousPassword, proposedPassword)
+    def self.updatePassword(username, previousPassword, proposedPassword, token)
       body = {username: username, previousPassword: previousPassword, proposedPassword: proposedPassword}
       url = "#{baseUrl}/#{UPDATE_PASS}"
-      postUrl(url, body, true)
+      postUrlWithBearerToken(url, body, token)
     end
 
     def self.recoverPassword(username, password, confirmationCode)
       body = {username: username, password: password, confirmPassword: password,  confirmationCode: confirmationCode}
       url = "#{baseUrl}/#{CONFIRM_PASS}"
       postUrl(url, body)
+    end
+
+    def self.postUrlWithBearerToken(url, body, token)
+      headers = baseHeaders(nil, false)
+      headers["Authorization"] = "Bearer #{token}"
+      HTTParty.post(url, headers: headers, body: body.to_json)
     end
 
   end
