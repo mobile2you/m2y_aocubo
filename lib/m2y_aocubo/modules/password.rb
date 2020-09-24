@@ -5,11 +5,11 @@ module M2yAocubo
     def self.forgotPassword(username)
       body = {username: username}
       url = "#{baseUrl}/#{FORGOT_PASS}"
-      postUrl(url, body, true)
+      postUrl(url, body)
     end
 
     def self.updatePassword(username, previousPassword, proposedPassword, token)
-      body = {username: username, previousPassword: previousPassword, proposedPassword: proposedPassword, proposedPasswordConfirmation: proposedPassword}
+      body = {username: username, previousPassword: previousPassword, proposedPassword: proposedPassword}
       url = "#{baseUrl}/#{UPDATE_PASS}"
       postUrlWithBearerToken(url, body, token)
     end
