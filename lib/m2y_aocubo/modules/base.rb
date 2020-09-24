@@ -16,17 +16,21 @@ module M2yAocubo
       headers
     end
 
-    def self.postUrl(url, body)
+    def self.basicAuth
+      {:username => M2yAocubo.configuration.ao3_client_id, :password => M2yAocubo.configuration.ao3_client_secret}
+    end 
+
+    def self.postUrl(url, body, auth = false)
       crypt = cryptContext
       if crypt.client_public_key.nil?
         nil
       else
-        HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key))
+        HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key), :basic_auth => auth ? basic_auth : nil)
       end
     end
 
-    def self.getUrl(url)
-      HTTParty.get(url, headers: baseHeaders)
+    def self.getUrl(url, auth = false)
+      HTTParty.get(url, headers: baseHeaders, :basic_auth => auth ? basic_auth : nil)
     end
 
 
