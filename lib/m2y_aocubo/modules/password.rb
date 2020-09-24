@@ -11,6 +11,8 @@ module M2yAocubo
     def self.updatePassword(username, previousPassword, proposedPassword, token)
       body = {username: username, previousPassword: previousPassword, proposedPassword: proposedPassword}
       url = "#{baseUrl}/#{UPDATE_PASS}"
+      puts url
+      puts body
       postUrlWithBearerToken(url, body, token)
     end
 
@@ -27,7 +29,7 @@ module M2yAocubo
       else
         headers = baseHeaders(crypt, false)
         headers["Authorization"] = "Bearer #{token}"
-        HTTParty.post(url, headers: headers, body: safeBody(body, crypt.client_public_key))
+        HTTParty.post(url, headers: headers, body: body)
       end
     end
 
