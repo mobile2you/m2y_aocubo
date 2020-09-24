@@ -6,6 +6,12 @@ module M2yAocubo
       M2yAocubo.configuration.ao3_sso_server_url
     end
 
+    def self.getToken
+      url = "#{baseUrl}/#{TOKEN}"
+      getUrl(url, true)
+    end
+
+
     def self.baseHeaders(crypt_id = nil)
       headers = {'Content-Type' => "application/json"}
       headers["x-api-key"] = M2yAocubo.configuration.ao3_api_key

@@ -1,11 +1,6 @@
 module M2yAocubo
   class Login < Base
 
-    def self.getToken
-      url = "#{baseUrl}/#{TOKEN}"
-      getUrl(url, true)
-    end
-
 
     def self.signin(username, password)
       token = getToken.parsed_response["token"]
