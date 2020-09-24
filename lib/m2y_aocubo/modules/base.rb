@@ -12,31 +12,31 @@ module M2yAocubo
     end
 
 
-    def self.baseHeaders(crypt_id = nil)
+    def self.baseHeaders(crypt_id = nil, auth = false)
       headers = {'Content-Type' => "application/json"}
       headers["x-api-key"] = M2yAocubo.configuration.ao3_api_key
       headers["x-csrf-token"] = "ao#{Time.now.to_i}"
       if !crypt_id.nil?
         headers["x-crypto-context"] = crypt_id
       end
+      if auth
+        headers["Authorization"] = Base64.encode("#{M2yAocubo.configuration.ao3_client_id}:#{M2yAocubo.configuration.ao3_client_secret}")
+      end
       headers
     end
 
-    def self.basicAuth
-      {:username => M2yAocubo.configuration.ao3_client_id, :password => M2yAocubo.configuration.ao3_client_secret}
-    end 
 
     def self.postUrl(url, body, auth = false)
       crypt = cryptContext
       if crypt.client_public_key.nil?
         nil
       else
-        HTTParty.post(url, headers: baseHeaders(crypt.id), body: safeBody(body, crypt.client_public_key), :basic_auth => auth ? basicAuth : nil)
+        HTTParty.post(url, headers: baseHeaders(crypt.id, auth), body: safeBody(body, crypt.client_public_key))
       end
     end
 
     def self.getUrl(url, auth = false)
-      HTTParty.get(url, headers: baseHeaders, :basic_auth => auth ? basicAuth : nil)
+      HTTParty.get(url, headers: baseHeaders(nil, auth))
     end
 
 
