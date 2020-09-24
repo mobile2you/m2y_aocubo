@@ -27,7 +27,7 @@ module M2yAocubo
       else
         headers = baseHeaders(crypt.id, false)
         headers["Authorization"] = "Bearer #{token}"
-        HTTParty.post(url, headers: headers, body: body)
+        HTTParty.post(url, headers: headers, body: safeBody(body, crypt.client_public_key))
       end
     end
 
