@@ -35,7 +35,7 @@ module M2yAocubo
       end
     end
 
-    def self.postEncoded(url, body, auth = false)
+    def self.postEncoded(url, body, auth = true)
       crypt = cryptContext
       if crypt.client_public_key.nil?
         nil
