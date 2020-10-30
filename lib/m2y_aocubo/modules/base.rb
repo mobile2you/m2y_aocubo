@@ -35,10 +35,20 @@ module M2yAocubo
       end
     end
 
+    def self.postEncoded(url, body, auth = false)
+      crypt = cryptContext
+      if crypt.client_public_key.nil?
+        nil
+      else
+        headers = baseHeaders(crypt.id, auth)
+        headers['Content-Type'] = "application/x-www-form-urlencoded"
+        HTTParty.post(url, headers: headers, body: safeBody(body, crypt.client_public_key))
+      end
+    end
+
     def self.getUrl(url, auth = false)
       HTTParty.get(url, headers: baseHeaders(nil, auth))
     end
-
 
     def self.cryptContext
       url = "#{baseUrl}/#{CRYPT_CONTEXT}"
