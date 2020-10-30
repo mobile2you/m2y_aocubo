@@ -42,7 +42,7 @@ module M2yAocubo
       else
         headers = baseHeaders(crypt.id, auth)
         headers['Content-Type'] = "application/x-www-form-urlencoded"
-        HTTParty.post(url, headers: headers, body: safeBody(body, crypt.client_public_key))
+        HTTParty.post(url, headers: headers, body: URI.encode_www_form(body))
       end
     end
 
