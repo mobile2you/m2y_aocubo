@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Consult < M2yAocubo::DataLake
+  class Consult < M2yAocubo::DataLakeBase
 
     def self.updatePass(user)
       event_body = {"#{EVENT_CD_SSO_EVENT_KEY}": EVENT_CD_SSO_PASSWORD_VALUE}
@@ -38,7 +39,7 @@ module M2yAocuboDataLake
                event_body,
                user)
 
-
+end
     end
   end
 end

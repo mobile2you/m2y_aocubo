@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Card < M2yAocubo::DataLake
+  class Card < M2yAocubo::DataLakeBase
 
     def self.sendCardEvent(card, event, user)
       event_body = {"#{EVENT_CD_SSO_EVENT_KEY}": event,
@@ -38,6 +39,6 @@ module M2yAocuboDataLake
         EVENT_CD_CARTAO_VIRTUAL_CARD_EVENT_VALUE,
       user)
     end
-
+end
   end
 end

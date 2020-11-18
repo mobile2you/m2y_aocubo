@@ -1,18 +1,6 @@
-require 'm2y_aocubo/constants/datalake_constants'
-require 'm2y_aocubo/modules/data_lake/billet'
-require 'm2y_aocubo/modules/data_lake/card'
-require 'm2y_aocubo/modules/data_lake/consult'
-require 'm2y_aocubo/modules/data_lake/identify'
-require 'm2y_aocubo/modules/data_lake/payment'
-require 'm2y_aocubo/modules/data_lake/profile'
-require 'm2y_aocubo/modules/data_lake/recharge'
-require 'm2y_aocubo/modules/data_lake/sso'
-require 'm2y_aocubo/modules/data_lake/transfer'
-
-
 module M2yAocubo
 
-  class DataLake
+  class DataLakeBase
 
     def self.baseUrl
       M2yAocubo.configuration.ao3_data_server_url
@@ -39,7 +27,12 @@ module M2yAocubo
         identifyId: identifyId,
         trackProperties: trackProperties
       }
+      puts body
       req = HTTParty.post(url, headers: basicHeaders, body: body.to_json )
+      begin
+        puts req.parsed_response
+      rescue
+      end
     end
 
     def self.identify(userId, username)

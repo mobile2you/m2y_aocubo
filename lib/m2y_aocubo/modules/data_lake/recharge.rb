@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Recharge < M2yAocubo::DataLake
+  class Recharge < M2yAocubo::DataLakeBase
 
     def self.phoneRecharge(idOriginAccount, dealer, phone, amount, user)
 
@@ -31,6 +32,6 @@ module M2yAocuboDataLake
                user)
 
     end
-
+end
   end
 end

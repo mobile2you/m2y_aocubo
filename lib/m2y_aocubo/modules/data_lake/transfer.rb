@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Transfer < M2yAocubo::DataLake
+  class Transfer < M2yAocubo::DataLakeBase
 
     def self.sendTed(idOriginAccount, bankId, agency, account, amount, user)
 
@@ -31,6 +32,6 @@ module M2yAocuboDataLake
                user)
 
     end
-
+end
   end
 end

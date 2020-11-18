@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Identify < M2yAocubo::DataLake
+  class Identify < M2yAocubo::DataLakeBase
 
     def self.sendIdentifyEvent(body, request, user)
       body[:device] = request.user_agent
@@ -26,4 +27,5 @@ module M2yAocuboDataLake
       user)
     end
   end
+end
 end

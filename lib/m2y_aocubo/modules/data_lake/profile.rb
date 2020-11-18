@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Profile < M2yAocubo::DataLake
+  class Profile < M2yAocubo::DataLakeBase
 
     def self.updatePhoto(user)
       event_body = {"#{EVENT_CD_PERFIL_EVENT_KEY}": EVENT_CD_PERFIL_EVENT_VALUE}
@@ -8,6 +9,6 @@ module M2yAocuboDataLake
                event_body,
                user)
     end
-
+end
   end
 end

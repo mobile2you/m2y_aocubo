@@ -1,6 +1,7 @@
-module M2yAocuboDataLake
+module M2yAocubo
+  module DataLake
 
-  class Payment < M2yAocubo::DataLake
+  class Payment < M2yAocubo::DataLakeBase
 
     def self.sendPayment(idOriginAccount, barcode, amount, user)
 
@@ -15,7 +16,7 @@ module M2yAocuboDataLake
                user)
 
     end
-
+end
 
   end
 end
