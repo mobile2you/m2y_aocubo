@@ -1,3 +1,15 @@
+require 'm2y_aocubo/constants/datalake_constants'
+require 'm2y_aocubo/modules/data_lake/billet'
+require 'm2y_aocubo/modules/data_lake/card'
+require 'm2y_aocubo/modules/data_lake/consult'
+require 'm2y_aocubo/modules/data_lake/identify'
+require 'm2y_aocubo/modules/data_lake/payment'
+require 'm2y_aocubo/modules/data_lake/profile'
+require 'm2y_aocubo/modules/data_lake/recharge'
+require 'm2y_aocubo/modules/data_lake/sso'
+require 'm2y_aocubo/modules/data_lake/transfer'
+
+
 module M2yAocubo
 
   class DataLake
@@ -68,6 +80,16 @@ module M2yAocubo
     end
 
 
+    def self.sendData(event, params, user)
+      if user.present?
+        identify_response = identify(user.ao3_id, user.document_plain)
+        identify = identify_response.parsed_response["id"]
+        if identify.present?
+          params[:username] = user.document_plain
+          d = sendDataEvent(identify, event, event, params)
+        end
+      end
+    end
 
   end
 end
