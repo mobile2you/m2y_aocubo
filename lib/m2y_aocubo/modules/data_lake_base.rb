@@ -19,7 +19,7 @@ module M2yAocubo
     end
 
     def self.sendDataEvent(identifyId, eventId, eventName, params)
-      url = "#{baseUrl}/#{DYNAMIC_INGEST}"
+      url = "#{baseUrl}/#{TRACK}"
       trackProperties = bodyFromParams(params)
       body = {
         eventId: eventId,
@@ -27,8 +27,10 @@ module M2yAocubo
         identifyId: identifyId,
         trackProperties: trackProperties
       }
+      puts url
       puts body
       req = HTTParty.post(url, headers: basicHeaders, body: body.to_json )
+      puts req.code
       begin
         puts req.parsed_response
       rescue
