@@ -53,13 +53,15 @@ module M2yAocubo
 
     def self.bodyFromParams(params)
       body = []
+      puts params
       if !params.nil?
         params.keys.each do |key|
           if !RESTRICTED_KEYS.include?(key)
-            body << {key: key, value: params[:key] }
+            body << {key: key, value: params[key] }
           end
         end
       end
+      puts body
       body
     end
 
