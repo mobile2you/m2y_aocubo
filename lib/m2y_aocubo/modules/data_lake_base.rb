@@ -55,7 +55,7 @@ module M2yAocubo
       body = []
       if !params.nil?
         params.keys.each do |key|
-          if RESTRICTED_KEYS.include?(key)
+          if !RESTRICTED_KEYS.include?(key)
             body << {key: key, value: params[:key] }
           end
         end
