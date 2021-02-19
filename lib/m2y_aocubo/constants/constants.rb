@@ -12,7 +12,7 @@ module M2yAocubo
   ACCESS_TOKEN = 'hypercube_usm/v1/oauth/accesstoken'
   VERIFICATION_TOKEN = 'hypercube_usm/v1/oauth/account/verification'
   RESEND_TOKEN = 'hypercube_usm/v1/oauth/account/verification/resend'
-  SAFE_KEYS = %w[username password confirm_password email previousPassword proposedPassword confirmPassword proposedPasswordConfirmation confirmationCode]
+  SAFE_KEYS = %w[username password confirm_password email previousPassword proposedPassword confirmPassword proposedPasswordConfirmation confirmationCode document_nummber]
   RESTRICTED_KEYS = %w[password itoken password_confirmation]
 
   #datalake
