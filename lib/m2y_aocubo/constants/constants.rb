@@ -9,12 +9,16 @@ module M2yAocubo
   UPDATE_PASS = 'hypercube_usm/v1/oauth/changepassword'
   CONFIRM_PASS = 'hypercube_usm/v1/oauth/confirmforgotpassword'
   FORGOT_PASS = 'hypercube_usm/v1/oauth/forgotpassword'
+  VERIFY_USER = 'hypercube_usm/v1/oauth/user/verify'
   ACCESS_TOKEN = 'hypercube_usm/v1/oauth/accesstoken'
+  SEND_VERIFICATION_TOKEN = "hypercube_usm/v1/oauth/user/sendtoken"
   VERIFICATION_TOKEN = 'hypercube_usm/v1/oauth/account/verification'
   RESEND_TOKEN = 'hypercube_usm/v1/oauth/account/verification/resend'
   SAFE_KEYS = %w[username password confirm_password email previousPassword proposedPassword confirmPassword proposedPasswordConfirmation confirmationCode document_number]
   RESTRICTED_KEYS = %w[password itoken password_confirmation]
 
+  #const
+  TOKEN_TYPE = "USER_VALIDATION"
   #datalake
   EVENT_IDENTIFY =  "event_identify"
   EVENT_CD_SSO = "event_cd_sso"

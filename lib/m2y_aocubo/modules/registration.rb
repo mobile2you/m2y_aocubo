@@ -6,6 +6,16 @@ module M2yAocubo
       postUrl(url, body)
     end
     
+    def self.verify_user(email)
+      url = "#{baseUrl}/#{VERIFY_USER}"
+      postUrl(url, {email: email})
+    end
+
+    def self.send_verify_code(email)
+      url = "#{baseUrl}/#{SEND_VERIFICATION_TOKEN}"
+      postUrl(url, {email: email, type_token: TOKEN_TYPE})
+    end
+
     def self.verify_code(username, code)
       url = "#{baseUrl}/#{VERIFICATION_TOKEN}"
       postUrl(url, {username: username, VerificationCode: code})
